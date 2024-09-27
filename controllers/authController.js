@@ -70,7 +70,30 @@ const authUser = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc    Mevcut kullanıcının bilgilerini getir
+// @route   GET /api/auth/me
+// @access  Private
+const getMe = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+
+    if (user) {
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            searchHistory: user.searchHistory,
+            favoriteCities: user.favoriteCities,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
+        });
+    } else {
+        res.status(404);
+        throw new Error('Kullanıcı bulunamadı');
+    }
+});
+
 module.exports = {
     registerUser,
     authUser,
+    getMe
 };

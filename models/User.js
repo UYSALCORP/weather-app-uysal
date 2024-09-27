@@ -20,6 +20,17 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Lütfen şifrenizi girin'],
         minlength: 6,
     },
+    searchHistory: [
+        {
+            city: { type: String, required: true },
+            date: { type: Date, default: Date.now },
+        },
+    ],
+    favoriteCities: [
+        {
+            type: String,
+        },
+    ],
 }, {
     timestamps: true,
 });

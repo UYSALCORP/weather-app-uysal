@@ -5,7 +5,7 @@ const logger = require('./middlewares/logger');
 require('express-async-errors'); // To handle async errors
 const errorHandler = require('./middlewares/errorMiddleware');
 const authRoutes = require('./routes/authRoutes');
-// const weatherRoutes = require('./routes/weatherRoutes');
+const weatherRoutes = require('./routes/weatherRoutes');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(morgan('combined', { stream: { write: message => logger.info(message.tri
 
 // Routes
 app.use('/api/auth', authRoutes);
-// app.use('/api/weather', weatherRoutes);
+app.use('/api/weather', weatherRoutes);
 
 // Error Handler Middleware
 app.use(errorHandler);
