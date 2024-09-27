@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Gece ve Gündüz temaları için CSS değişiklikleri */
+body {
+  @apply bg-day-sky bg-cover bg-center transition-all duration-500;
+}
+
+body.night {
+  @apply bg-night-sky bg-cover bg-center;
+}
