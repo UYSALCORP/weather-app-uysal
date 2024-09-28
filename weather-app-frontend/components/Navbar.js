@@ -57,7 +57,7 @@ const Navbar = () => {
                     ) : (
                         <>
                             <Link href="/login">
-                                <span className="text-white mr-4 hover:text-darkBlue-200">Giriş Yap</span>
+                                <span className="text-white mr-4 hover:text-darkBlue-200">Sign in</span>
                             </Link>
                             <Link href="/register">
                                 <span className="text-white hover:text-darkBlue-200">Kayıt Ol</span>
